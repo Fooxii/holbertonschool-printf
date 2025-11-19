@@ -4,6 +4,6 @@
  * Header should be include guarded
  */
 
-int _printf(const har *format, ...); /* Provided prototype */ 
+int _printf(const char *format, ...); /* Provided prototype */ 
 
 #endif /* MAIN_H */
