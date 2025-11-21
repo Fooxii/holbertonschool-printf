@@ -30,9 +30,11 @@ if (*format != '\0')
 /* picks correct specifier and adds return to the count*/
 count += pick_specifier(format, args);
 }
-else
+else /*if '%' is the last character*/
 {
-return (-1); /*if '%' is the last character*/
+format--; /*goes back to '%' from '\0'*/
+write(1, '%', 1); /*prints '%'*/
+count++; /*increases count because '%' was printed*/
 }
 
 }
