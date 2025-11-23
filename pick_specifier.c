@@ -2,24 +2,30 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-
-
-int pick_specifier(const char *format, va_list args)
+int pick_specifier(char format, va_list args)
 {
-if (*format == 'c') /*if character after '%' is c, then*/
+if (format == 'c')
 {
-return (print_char(args)); /* returns whatever value print_char gives you*/
+return (print_char(args));
 }
-if (*format == 's') /*if character after '%' is s, then*/
+
+if (format == 's')
 {
 return (print_string(args));
 }
-if (*format == 'd' || *format == 'i') /*if character after '%' is d or i, then*/
-return print_int(args);
 
+if (format == 'd' || format == 'i')
+{
+return (print_int(args));
+}
 
-/* Unknown specifier */
-write(1, '%', 1);
-write(1, format, 1);
-return (2); /*returns 2, which is then added to count in _printf.c*/
+if (format == '%')
+{
+return (print_percent());
+}
+
+/* Unknown specifier: print "%x" */
+write(1, "%", 1);
+write(1, &format, 1);
+return (2);
 }
