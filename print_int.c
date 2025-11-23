@@ -1,31 +1,31 @@
 #include "main.h"
 
 /**
- * print_int - function that prints an interger
+ * print_int - prints an integer
  * @args: list of arguments
- * Return: amount of intergers printed
+ * Return: number of characters printed
  */
 
 int print_int(va_list args)
 {
-
 int num = va_arg(args, int);
+long n = num;
 char conv[12];
 int i = 0, count = 0;
 
-if (num == 0)
+if (n == 0)
 return (write(1, "0", 1));
 
-if (num < 0)
+if (n < 0)
 {
 count += write(1, "-", 1);
-num = num * -1;
+n = -n;
 }
 
-while (num > 0)
+while (n > 0)
 {
-conv[i++] = (num % 10) + '0';
-num /= 10;
+conv[i++] = (n % 10) + '0';
+n /= 10;
 }
 
 while (i--)
