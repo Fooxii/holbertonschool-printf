@@ -26,7 +26,7 @@ format++; /* moves format to after the '%'*/
 if (*format != '\0')
 {
 /* picks correct specifier and adds return to the count*/
-count += pick_specifier(format, args);
+count += pick_specifier(*format, args);
 }
 else /*if '%' is the last character*/
 {
