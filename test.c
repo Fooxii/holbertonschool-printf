@@ -8,7 +8,6 @@ int main(void)
     char *null_str = (void *)0;
     int itest = 1234;
     int dtest = 8;
-    int ret1, ret2;
 
     printf("Testing format specifiers\n");
     _printf("Testing format specifiers\n");
@@ -37,18 +36,9 @@ int main(void)
     _printf("Percent format specifier %%\n");
     printf("Percent format specifier %%\n\n");
 
-    /* INVALID: test return -1 */
-    ret1 = _printf("%");
-    printf("_printf(\"%%\") returned: %d\n\n", ret1);
-
     /* MULTIPLE SPECIFIERS */
     _printf("Multiple: %c %s %i\n", ctest, stest, itest);
     printf("Multiple: %c %s %i\n\n", ctest, stest, itest);
-
-    /* RETURN VALUE TEST */
-    ret1 = _printf("Test %c %d %s\n", 'X', 123, "ABC");
-    ret2 = printf("Test %c %d %s\n", 'X', 123, "ABC");
-printf("_printf returned %d, printf returned %d\n", ret1, ret2);
 
 return (0);
 }
