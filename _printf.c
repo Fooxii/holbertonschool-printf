@@ -19,22 +19,21 @@ return (-1); /*Returns -1 because a successful return should be positive*/
 }
 
 va_start(args, format);
-while (*format != "\0") /*goes through every char in format pointer*/
+while (*format != '\0') /*goes through every char in format pointer*/
 {
-if (*format == '%') /*if '%' is found check next character*/
+if (*format == "%") /*if '%' is found check next character*/
 {
 format++; /* moves format to after the '%'*/
 
 if (*format != '\0')
 {
 /* picks correct specifier and adds return to the count*/
-count += pick_specifier(format, args);
+count += pick_specifier(*format, args);
 }
 else /*if '%' is the last character*/
 {
-format--; /*goes back to '%' from '\0'*/
-write(1, '%', 1); /*prints '%'*/
-count++; /*increases count because '%' was printed*/
+va_end(args);
+return (-1);
 }
 
 }
