@@ -3,11 +3,14 @@
 /*
  * Header should be include guarded
  */
+#include <stdarg.h>
+#include <unistd.h>
 
 int _printf(const char *format, ...); /* Provided prototype */ 
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(void);
 int pick_specifier(const char *format, va_list args);
+int print_int(va_list args);
 
 #endif /* MAIN_H */
