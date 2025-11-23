@@ -3,7 +3,7 @@
 #include "main.h" /* prototype */
 
 /**
- * print_char / prints one character
+ * print_char - prints one character
  * @args: list of the arguments
  * Return: the number of characters printed 1
  */

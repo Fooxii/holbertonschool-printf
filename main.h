@@ -1,12 +1,16 @@
 #ifndef MAIN_H
 #define MAIN_H
-/*
- * Header should be include guarded
- */
+
 #include <stdarg.h>
 #include <unistd.h>
 
-int _printf(const char *format, ...); /* Provided prototype */ 
+/**
+ * _printf - produces output according to a format
+ * @format: pointer to string
+ * Return: the number of characters printed (excluding null byte)
+ */
+
+int _printf(const char *format, ...); /* Provided prototype */
 int print_char(va_list args);
 int print_string(va_list args);
 int print_percent(void);

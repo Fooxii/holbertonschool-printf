@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * pick_specifier - function that picks what to format specifier was found
+ * @format: character after '%'
+ * @args: arguments passed by variadic function
+ * Return: sends to function specific to specifier found
+ */
+
 int pick_specifier(char format, va_list args)
 {
 if (format == 'c')
