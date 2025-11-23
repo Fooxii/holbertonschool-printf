@@ -1,5 +1,3 @@
-#include <stdarg.h> /* To handle variable arguments*/
-#include <unistd.h> /* Required for write () function to print characters */
 #include "main.h" /* Provided: includes the function prototypes as instructed*/
 
 /**
@@ -21,14 +19,14 @@ return (-1); /*Returns -1 because a successful return should be positive*/
 va_start(args, format);
 while (*format != '\0') /*goes through every char in format pointer*/
 {
-if (*format == "%") /*if '%' is found check next character*/
+if (*format == '%') /*if '%' is found check next character*/
 {
 format++; /* moves format to after the '%'*/
 
 if (*format != '\0')
 {
 /* picks correct specifier and adds return to the count*/
-count += pick_specifier(*format, args);
+count += pick_specifier(format, args);
 }
 else /*if '%' is the last character*/
 {
