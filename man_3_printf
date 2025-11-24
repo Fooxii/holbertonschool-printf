@@ -1,0 +1,63 @@
+.TH _PRINTF 3 "
+
+.SH NAME
+_printf - Print function implemented
+
+.SH SYNOPSIS
+.nf
+#include "main.h"
+
+int _printf(const char *format, ...);
+.fi
+
+.SH DESCRIPTION
+The _printf fucntion produces an output in relation with a format string.
+It will be a simplified recreation of the standard C printf, it also supports 
+a limited set of conversion specifiers.
+
+The function parses the string format one character at a given time.
+Normal characters are printed as is. When a percent sign (%) is found, _printf checks the next character to determine the correct action.
+
+All output is written using the write () system call. The function returns the total
+number of characters printed.
+
+.SH SUPPORTED FORMAT SPECIFIERS
+The following format specifiers are implemented in this version:
+
+.TP
+.B %c
+It prints a single character.
+
+.TP
+.B %s
+It prints a null-terminated string. If the string is NULL, "(null)" is printed.
+
+.TP
+.B %%
+Will print a literal percent sign.
+
+.TP
+.B %d
+It prints a signed integer in decimal notation.
+
+.TP
+.B %i
+It is equivalent to %d. Prints a signed integer in decimal notation. 
+
+.SH RETURN VALUE
+Returns the number of characters printed.
+If format is NULL, the function returns -1.
+
+.SH IMPLEMENTATION NOTES
+_printf uses variadic arguments (va_list, va_start, va_arg, va_end).
+Parsing and dispatching to the correct printing funciton is handled internally by pick_specifier().
+
+The integers (%d and %i) are converted manually using division and modulus operations.
+No standard library conversions like: printf, sprintf, itoa; are used.
+
+.SH SEE ALSO
+printf(3), write(2), stdarg(3)
+
+
+.SH AUTHORS
+Alexander Rivas and Natanael Ortiz.
