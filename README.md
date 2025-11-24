@@ -5,8 +5,6 @@ This _printf project implements a simplified version of the standard C libary fu
 The function '_printf' produces output according to a forma string and supports
 a limited set amount of format specifiers.
 
-/* Making changes to the read me */
-
 ## Supported Format Specifiers
 The following conversion specifiers are implemented:
 
